@@ -101,7 +101,7 @@ def load_im():
         imf = myresize_w256(img)
         st.image(imf) 
         return x
-    else
+    else:
         return None
 
 
