@@ -79,8 +79,8 @@ def pedict2(fg,bg):
     bg = bg.reshape(img_height,img_width,3)
     return bg
 #--------------------------------------------------
-model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
-model.load_weights('model_weights_P.h5') 
+#model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
+#model.load_weights('model_weights_P.h5') 
 
 
 global data
