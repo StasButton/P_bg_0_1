@@ -117,8 +117,6 @@ with tab1:
             img = Image.open(io.BytesIO(image_data))
             x = preprocess_image(img)
             
-            st.text(x.shape)
-            
             imf = myresize_w256(img)
             st.image(imf)
         #'''
@@ -132,7 +130,9 @@ with tab2:
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
-        
+            
+            st.text(x.shape)
+            
             imb = myresize_w256(img_bg)
             st.image(imb)
         #'''
