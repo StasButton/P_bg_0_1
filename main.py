@@ -131,7 +131,7 @@ with tab2:
             x_bg = preprocess_image(img_bg)
             x_bg = x_bg.reshape(-1, 3)
             
-            st.text(x.shape)
+            st.text(x_bg.shape)
             
             imb = myresize_w256(img_bg)
             st.image(imb)
