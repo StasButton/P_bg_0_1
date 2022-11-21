@@ -102,6 +102,7 @@ with tab1:
                 x = preprocess_image(img)
 
                 imf = myresize_w256(img)
+                b = False
         if uploaded_file is not None:
             st.image(imf)
                 
