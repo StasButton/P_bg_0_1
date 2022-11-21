@@ -92,10 +92,10 @@ st.title('Замена фона на фотографиях людей')
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
 b = True
-#global uploaded_file
+global uploaded_file
 with tab1:
         if b:
-            global uploaded_file = st.file_uploader(label='фото человека')
+            uploaded_file = st.file_uploader(label='фото человека')
             if uploaded_file is not None:
                 image_data = uploaded_file.getvalue()
                 img = Image.open(io.BytesIO(image_data))
