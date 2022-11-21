@@ -6,10 +6,7 @@ if 'log' not in st.session_state:
 img_width = 192;img_height = 256;num_classes = 2
 #--------------------------------------------------
 
-
- 
-
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 def myresize_w256(img): 
   ke = 0.75
   if img.size[0]==192 and img.size[1]==256:
@@ -124,7 +121,9 @@ with tab1:
             st.image(imf)
         '''
            
-with tab2: 
+with tab2:
+       x_bg = load_im()
+        '''
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
@@ -134,6 +133,7 @@ with tab2:
         
             imb = myresize_w256(img_bg)
             st.image(imb)
+        '''
 
 with tab3:
         result = st.button('Заменить фон',key=1)
