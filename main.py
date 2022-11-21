@@ -116,7 +116,9 @@ with tab1:
             image_data = uploaded_file.getvalue()
             img = Image.open(io.BytesIO(image_data))
             x = preprocess_image(img)
-
+            
+            st.text(x.shape)
+            
             imf = myresize_w256(img)
             st.image(imf)
         #'''
