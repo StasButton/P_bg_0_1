@@ -110,8 +110,8 @@ def load_im(l):
 
 
 with tab1:
-        #x = load_im('фото человека')
-        #'''
+        x = load_im('фото человека')
+        '''
         uploaded_file = st.file_uploader(label='фото человека')
         if uploaded_file is not None:
             image_data = uploaded_file.getvalue()
@@ -120,11 +120,11 @@ with tab1:
             
             imf = myresize_w256(img)
             st.image(imf)
-        #'''
+        '''
            
 with tab2:
-        #x_bg = load_im('Выберите фон')
-        #'''
+        x_bg = load_im('Выберите фон')
+        '''
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
             image_data_bg = uploaded_file_bg.getvalue()
@@ -136,7 +136,7 @@ with tab2:
             
             imb = myresize_w256(img_bg)
             st.image(imb)
-        #'''
+        '''
 
 with tab3:
         result = st.button('Заменить фон',key=1)
