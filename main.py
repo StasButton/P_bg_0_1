@@ -95,8 +95,8 @@ st.title('Замена фона на фотографиях людей')
 tab1, tab2, tab3  = st.tabs(["Исходное фото", "Фон", "Результат"])
 
 
-def load_im():
-    uploaded_file = st.file_uploader(label='фото человека')
+def load_im(l):
+    uploaded_file = st.file_uploader(label=l)
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
         img = Image.open(io.BytesIO(image_data))
@@ -109,7 +109,7 @@ def load_im():
 
 
 with tab1:
-        x = load_im()
+        x = load_im('фото человека')
         '''
         uploaded_file = st.file_uploader(label='фото человека')
         if uploaded_file is not None:
@@ -122,7 +122,7 @@ with tab1:
         '''
            
 with tab2:
-        x_bg = load_im()
+        x_bg = load_im('Выберите фон')
         '''
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
