@@ -73,6 +73,7 @@ def pedict2(fg,bg):
     pr = np.array(model.predict(fg)) # Предиктим картинку
     pr = pr.reshape(-1, 2) # Решейпим предикт
     fg = fg.reshape(-1, 3)
+    bg = bg.reshape(-1, 3)
     for i , q in enumerate(pr): #start =1
         if np.argmax(q) > 0.5:
             bg[i] = fg[i]
@@ -129,7 +130,7 @@ with tab2:
             image_data_bg = uploaded_file_bg.getvalue()
             img_bg = Image.open(io.BytesIO(image_data_bg))
             x_bg = preprocess_image(img_bg)
-            x_bg = x_bg.reshape(-1, 3)
+            #x_bg = x_bg.reshape(-1, 3)
             
             st.text(x_bg.shape)
             
