@@ -122,7 +122,7 @@ with tab1:
         '''
            
 with tab2:
-       x_bg = load_im()
+        x_bg = load_im()
         '''
         uploaded_file_bg = st.file_uploader(label='Выберите фон')
         if uploaded_file_bg is not None:
