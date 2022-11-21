@@ -5,10 +5,12 @@ if 'log' not in st.session_state:
     st.session_state.log = []
 img_width = 192;img_height = 256;num_classes = 2
 #--------------------------------------------------
+
+@st.cache(allow_output_mutation=True)
 model = u_net.modelUnet(num_classes,(img_height,img_width, 3))
 model.load_weights('model_weights_P.h5')  
 
-@st.cache(allow_output_mutation=True)
+
 def myresize_w256(img): 
   ke = 0.75
   if img.size[0]==192 and img.size[1]==256:
