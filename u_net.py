@@ -10,7 +10,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
 
     # Block 1
     x = Conv2D(32, (3, 3), padding='same', name='block1_conv1')(img_input) # Добавляем Conv2D-слой с 32-нейронами
-    x = BatchNormalization(name='bn_0)(x)                                            # Добавляем слой BatchNormalization
+    x = BatchNormalization(name='bn_0')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x)                                              # Добавляем слой Activation
 
     x = Conv2D(32, (3, 3), padding='same', name='block1_conv2')(x)         # Добавляем Conv2D-слой с 32-нейронами
