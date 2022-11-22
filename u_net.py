@@ -62,7 +62,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x = Activation('relu',name='a_9')(x9)  
 
     # UP 4
-    x = Conv2DTranspose(256, (2, 2), strides=(2, 2), padding='same')(x)     #  32, 24, 2   Добавляем Conv2DTranspose-слой с 256-нейронами
+    x = Conv2DTranspose(256, (2, 2), strides=(2, 2), padding='same',name='t_0')(x)     #  32, 24, 2   Добавляем Conv2DTranspose-слой с 256-нейронами
     x11 = BatchNormalization(name='bn_9')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu',name='a_10')(x11)                                              # Добавляем слой Activation
 
@@ -76,7 +76,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x = Activation('relu',name='a_12')(x13)                                              # Добавляем слой Activation
     
     # UP 3
-    x = Conv2DTranspose(128, (2, 2), strides=(2, 2), padding='same')(x)    # 64, 48, 2  Добавляем Conv2DTranspose-слой с 128-нейронами
+    x = Conv2DTranspose(128, (2, 2), strides=(2, 2), padding='same',name='t_1')(x)    # 64, 48, 2  Добавляем Conv2DTranspose-слой с 128-нейронами
     x14 = BatchNormalization(name='bn_12')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu',name='a_14')(x14)                                              # Добавляем слой Activation
 
@@ -91,7 +91,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
           
     
     # UP 2
-    x = Conv2DTranspose(64, (2, 2), strides=(2, 2), padding='same')(x)     # 128, 96, 2 Добавляем Conv2DTranspose-слой с 64-нейронами
+    x = Conv2DTranspose(64, (2, 2), strides=(2, 2), padding='same',name='t_2')(x)     # 128, 96, 2 Добавляем Conv2DTranspose-слой с 64-нейронами
     x17 = BatchNormalization(name='bn_15')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu',name='a_17')(x17)                                              # Добавляем слой Activation
 
@@ -105,7 +105,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x = Activation('relu',name='a_19')(x19)                                              # Добавляем слой Activation
     
     # UP 1
-    x = Conv2DTranspose(32, (2, 2), strides=(2, 2), padding='same')(x)     # 256, 192, 2  Добавляем Conv2DTranspose-слой с 32-нейронами
+    x = Conv2DTranspose(32, (2, 2), strides=(2, 2), padding='same',name='t_3')(x)     # 256, 192, 2  Добавляем Conv2DTranspose-слой с 32-нейронами
     x21 = BatchNormalization(name='bn_18')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu',name='a_20')(x21)                                              # Добавляем слой Activation
 
@@ -118,7 +118,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x23 = BatchNormalization(name='bn_20')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu',name='a_22')(x23)                                              # Добавляем слой Activation
 
-    x = Conv2D(num_classes,(3,3), activation='softmax', padding='same')(x) # Добавляем Conv2D-Слой с softmax-активацией на num_classes-нейронов
+    x = Conv2D(num_classes,(3,3), activation='softmax', padding='same',name='t_4')(x) # Добавляем Conv2D-Слой с softmax-активацией на num_classes-нейронов
 
     model = Model(img_input, x)                                            # Создаем модель с входом 'img_input' и выходом 'x'
 
