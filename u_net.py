@@ -77,45 +77,45 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     
     # UP 3
     x = Conv2DTranspose(128, (2, 2), strides=(2, 2), padding='same')(x)    # 64, 48, 2  Добавляем Conv2DTranspose-слой с 128-нейронами
-    x14 = BatchNormalization(name='bn_12)(x)                                            # Добавляем слой BatchNormalization
+    x14 = BatchNormalization(name='bn_12')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x14)                                              # Добавляем слой Activation
 
     x = concatenate([x, block_3_out]) 
     x = Conv2D(128, (3, 3), padding='same')(x)                             # Добавляем Conv2D-слой с 128-нейронами
-    x15 = BatchNormalization(name='bn_13)(x)                                            # Добавляем слой BatchNormalization
+    x15 = BatchNormalization(name='bn_13')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x15)                                              # Добавляем слой Activation
 
     x = Conv2D(128, (3, 3), padding='same')(x)                             # Добавляем Conv2D-слой с 128-нейронами
-    x16 = BatchNormalization(name='bn_14)(x)                                            # Добавляем слой BatchNormalization
+    x16 = BatchNormalization(name='bn_14')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x16)                                              # Добавляем слой Activation
           
     
     # UP 2
     x = Conv2DTranspose(64, (2, 2), strides=(2, 2), padding='same')(x)     # 128, 96, 2 Добавляем Conv2DTranspose-слой с 64-нейронами
-    x17 = BatchNormalization(name='bn_15)(x)                                            # Добавляем слой BatchNormalization
+    x17 = BatchNormalization(name='bn_15')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x17)                                              # Добавляем слой Activation
 
     x = concatenate([x, block_2_out]) 
     x = Conv2D(64, (3, 3), padding='same')(x)                              # Добавляем Conv2D-слой с 64-нейронами
-    x18 = BatchNormalization(name='bn_16)(x)                                            # Добавляем слой BatchNormalization
+    x18 = BatchNormalization(name='bn_16')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x18)                                              # Добавляем слой Activation
 
     x = Conv2D(64, (3, 3), padding='same')(x)                              # Добавляем Conv2D-слой с 64-нейронами
-    x19 = BatchNormalization(name='bn_17)(x)                                            # Добавляем слой BatchNormalization
+    x19 = BatchNormalization(name='bn_17')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x19)                                              # Добавляем слой Activation
     
     # UP 1
     x = Conv2DTranspose(32, (2, 2), strides=(2, 2), padding='same')(x)     # 256, 192, 2  Добавляем Conv2DTranspose-слой с 32-нейронами
-    x21 = BatchNormalization(name='bn_18)(x)                                            # Добавляем слой BatchNormalization
+    x21 = BatchNormalization(name='bn_18')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x21)                                              # Добавляем слой Activation
 
     x = concatenate([x, block_1_out])
     x = Conv2D(32, (3, 3), padding='same')(x)                              # Добавляем Conv2D-слой с 32-нейронами
-    x22 = BatchNormalization(name='bn_19)(x)                                            # Добавляем слой BatchNormalization
+    x22 = BatchNormalization(name='bn_19')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x22)                                              # Добавляем слой Activation
 
     x = Conv2D(32, (3, 3), padding='same')(x)                              # Добавляем Conv2D-слой с 32-нейронами
-    x23 = BatchNormalization(name='bn_20)(x)                                            # Добавляем слой BatchNormalization
+    x23 = BatchNormalization(name='bn_20')(x)                                            # Добавляем слой BatchNormalization
     x = Activation('relu')(x23)                                              # Добавляем слой Activation
 
     x = Conv2D(num_classes,(3,3), activation='softmax', padding='same')(x) # Добавляем Conv2D-Слой с softmax-активацией на num_classes-нейронов
