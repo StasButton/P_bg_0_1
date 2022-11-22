@@ -17,7 +17,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x1 = BatchNormalization(name='bn_1')(x)                                            # Добавляем слой BatchNormalization
     block_1_out = Activation('relu',name='a_1')(x1)                                    # Добавляем слой Activation и запоминаем в переменной block_1_out
 
-    x = MaxPooling2D()(block_1_out)                                        # 128, 96, 3     Добавляем слой MaxPooling2D
+    x = MaxPooling2D(name='m_0')(block_1_out)                                        # 128, 96, 3     Добавляем слой MaxPooling2D
 
     # Block 2
     x = Conv2D(64, (3, 3), padding='same', name='block2_conv1')(x)         # Добавляем Conv2D-слой с 64-нейронами
@@ -28,7 +28,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x3 = BatchNormalization(name='bn_3')(x)                                            # Добавляем слой BatchNormalization
     block_2_out = Activation('relu',name='a_3')(x3)                                    # Добавляем слой Activation и запоминаем в переменной block_2_out
 
-    x = MaxPooling2D()(block_2_out)                                        # 64, 48, 3 Добавляем слой MaxPooling2D
+    x = MaxPooling2D(name='m_1')(block_2_out)                                        # 64, 48, 3 Добавляем слой MaxPooling2D
 
     # Block 3
     x = Conv2D(128, (3, 3), padding='same', name='block3_conv1')(x)        # Добавляем Conv2D-слой с 128-нейронами
@@ -39,7 +39,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x5 = BatchNormalization(name='bn_5')(x)                                            # Добавляем слой BatchNormalization
     block_3_out = Activation('relu',name='a_5')(x5)                                    # Добавляем слой Activation и запоминаем в переменной block_2_out
 
-    x = MaxPooling2D()(block_3_out)                                        # 32, 24 ,3
+    x = MaxPooling2D(name='m_2')(block_3_out)                                        # 32, 24 ,3
 
     # Block 4
     x = Conv2D(256, (3, 3), padding='same', name='block4_conv1')(x)         # Добавляем Conv2D-слой с 256-нейронами
@@ -50,7 +50,7 @@ def modelUnet(num_classes = 2, input_shape= (1,256,192,3)):
     x7 = BatchNormalization(name='bn_7')(x)                                            # Добавляем слой BatchNormalization
     block_4_out = Activation('relu',name='a_7')(x7)                                    # Добавляем слой Activation и запоминаем в переменной block_2_out
 
-    x = MaxPooling2D()(block_4_out)                                         # 16, 12, 3
+    x = MaxPooling2D(name='m_3')(block_4_out)                                         # 16, 12, 3
 
     # Center
     x = Conv2D(256, (3, 3), padding='same', name='blockC_conv1')(x)         # Добавляем Conv2D-слой с 256-нейронами
